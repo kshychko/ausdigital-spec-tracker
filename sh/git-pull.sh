@@ -29,3 +29,11 @@ if [[ ${RESULT} -ne 0 ]]; then
 fi
 
 cp -rf ~/spec-repos/$REPO_NAME/docs/* ~/spec-tracker/specs/ausdigital-syn/
+
+cd ~/spec-tracker
+
+git add --all
+
+git commit -m "update specification files for ${REPO_NAME}"
+
+git push origin master
