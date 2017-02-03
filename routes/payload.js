@@ -6,7 +6,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
-console.log("received:\n", req.body)
+console.log("Received:\n", req.body)
 });
 
 module.exports = router;
