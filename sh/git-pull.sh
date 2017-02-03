@@ -1,8 +1,11 @@
 #!/bin/bash
 
 # Parse options
-while getopts ":u:" opt; do
+while getopts ":n:u:" opt; do
     case $opt in
+        n)
+            REPO_NAME="${OPTARG}"
+            ;;
         u)
             REPO_URL="${OPTARG}"
             ;;
@@ -17,5 +20,5 @@ while getopts ":u:" opt; do
      esac
 done
 
-cd ~/spec-repos
-git clone $REPO_URL
+cd ~/spec-repos/$REPO_NAME
+git pull $REPO_URL
