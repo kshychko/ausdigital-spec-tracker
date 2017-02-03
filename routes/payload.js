@@ -13,13 +13,13 @@ router.post('/', function (req, res, next) {
     console.log(repoURL)
     exec('sh sh/git-pull.sh'
         + ' -n ' + repoName
-        + ' -u ' + repoURL/*
-        + ' -tn ' + 'spec-tracker'
-        + ' -tu ' + 'https://github.com/kshychko/spec-tracker.git'*/
+        + ' -u ' + repoURL
+        + ' -t ' + 'ausdigital.github.io'
+        + ' -r ' + 'git@github.com:kshychko/ausdigital.github.io.git'
         , function (err, stdout, stderr) {
         console.log(err, stdout, stderr);
+        res.send('webhook was received');
     })
-    res.send('webhook was received');
 });
 
 module.exports = router;
