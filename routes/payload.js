@@ -12,10 +12,10 @@ router.post('/', function (req, res, next) {
     var repoName = req.body.repository.name;
     console.log(repoURL)
     exec('sh sh/git-pull.sh'
-        + ' -sn ' + repoName
-        + ' -su ' + repoURL
+        + ' -n ' + repoName
+        + ' -u ' + repoURL/*
         + ' -tn ' + 'spec-tracker'
-        + ' -su ' + 'https://github.com/kshychko/spec-tracker.git'
+        + ' -tu ' + 'https://github.com/kshychko/spec-tracker.git'*/
         , function (err, stdout, stderr) {
         console.log(err, stdout, stderr);
     })
