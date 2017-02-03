@@ -11,7 +11,12 @@ router.post('/', function (req, res, next) {
     var repoURL = req.body.repository.git_url;
     var repoName = req.body.repository.name;
     console.log(repoURL)
-    exec('sh sh/git-pull.sh' + ' -d ' + repoName+ ' -u ' + repoURL, function (err, stdout, stderr) {
+    exec('sh sh/git-pull.sh'
+        + ' -sn ' + repoName
+        + ' -su ' + repoURL
+        + ' -tn ' + 'spec-tracker'
+        + ' -su ' + 'https://github.com/kshychko/spec-tracker.git'
+        , function (err, stdout, stderr) {
         console.log(err, stdout, stderr);
     })
     res.send('webhook was received');
