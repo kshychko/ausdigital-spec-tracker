@@ -1,5 +1,8 @@
 #!/bin/bash
 
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+
 # Parse options
 while getopts ":n:u:t:r:" opt; do
     case $opt in
