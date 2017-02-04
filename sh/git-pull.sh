@@ -25,6 +25,7 @@ while getopts ":n:u:t:r:" opt; do
             ;;
      esac
 done
+cd ~/
 if [ -d "$TARGET_REPO_NAME" ]; then
     echo -e "${TARGET_REPO_NAME} exists, no need to clone"
     else
@@ -45,6 +46,7 @@ if [ -d "$REPO_NAME" ]; then
     mkdir $REPO_NAME
 fi
 
+cd ~/
 if [ -d "$REPO_NAME" ]; then
     cd /$REPO_NAME
     git pull origin master
