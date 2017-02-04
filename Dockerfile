@@ -1,10 +1,17 @@
 FROM node
 
+RUN git config --global user.email "k.shychko@gmail.com"
+RUN git config --global user.name "AST update"
+
 RUN mkdir -p /root/.ssh
 
 ADD id_rsa /root/.ssh/id_rsa
 
 RUN chmod 700 /root/.ssh/id_rsa
+
+RUN eval $(ssh-agent -s)
+
+RUN ssh-add ~/.ssh/id_rsa
 
 RUN mkdir /src
 
