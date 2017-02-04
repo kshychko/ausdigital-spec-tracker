@@ -10,4 +10,4 @@ RUN npm install --silent
 
 EXPOSE 3000
 
-CMD forever --minUptime 100 bin/www
+CMD forever --minUptime 100 bin/www  -o out.log -e err.log

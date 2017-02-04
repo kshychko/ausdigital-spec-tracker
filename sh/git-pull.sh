@@ -33,15 +33,15 @@ if [ -d "$TARGET_REPO_NAME" ]; then
 fi
 
 cd ~/$TARGET_REPO_NAME
-if [ -d "specs" ]; then
+if [ -d "_specs" ]; then
     echo -e "specs directoryexists, no need to create"
     else
-    mkdir "specs"
+    mkdir "_specs"
 fi
 
-cd ~/$TARGET_REPO_NAME/specs
+cd ~/$TARGET_REPO_NAME/_specs
 if [ -d "$REPO_NAME" ]; then
-    echo -e "specs/${REPO_NAME} directory exists, no need to create"
+    echo -e "_specs/${REPO_NAME} directory exists, no need to create"
     else
     mkdir $REPO_NAME
 fi
@@ -59,7 +59,7 @@ if [ -d "$REPO_NAME" ]; then
     git clone $REPO_URL
 fi
 
-cp -rf ~/$REPO_NAME/docs/* ~/$TARGET_REPO_NAME/specs/$REPO_NAME/
+cp -rf ~/$REPO_NAME/docs/* ~/$TARGET_REPO_NAME/_specs/$REPO_NAME/
 
 cd ~/$TARGET_REPO_NAME
 
