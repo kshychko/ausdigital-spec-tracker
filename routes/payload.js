@@ -11,7 +11,7 @@ log4js.configure({
         { type: 'file', filename: 'app.log', category: 'app' }
     ]
 });
-var logger = log4js.getLogger();
+var logger = log4js.getLogger('app');
 
 
 /* GET home page. */
