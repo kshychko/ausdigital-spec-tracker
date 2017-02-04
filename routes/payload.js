@@ -4,6 +4,9 @@
 var express = require('express');
 var router = express.Router();
 var exec = require('child_process').exec;
+var log4js = require('log4js');
+var logger = log4js.getLogger();
+
 
 /* GET home page. */
 router.post('/', function (req, res, next) {
@@ -17,9 +20,11 @@ router.post('/', function (req, res, next) {
         + ' -t ' + 'ausdigital.github.io'
         + ' -r ' + 'git@github.com:kshychko/ausdigital.github.io.git'
         , function (err, stdout, stderr) {
-        console.log(err, stdout, stderr);
-        res.send('webhook was received');
-    })
+            logger.error(err)
+            logger.log(stdout)
+            logger.error(stderr)
+            res.send('webhook was received');
+        });
 });
 
 module.exports = router;
