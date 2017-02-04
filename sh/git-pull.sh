@@ -40,11 +40,11 @@ if [ -d "$REPO_NAME" ]; then
     git clone $REPO_URL
 fi
 
-mkdir ~/spec-repos/$TARGET_REPO_NAME/specs/$REPO_NAME/
+mkdir ~/spec-tracker/$TARGET_REPO_NAME/specs/$REPO_NAME/
 
-cp -rf ~/spec-repos/$REPO_NAME/docs/* ~/spec-repos/$TARGET_REPO_NAME/specs/$REPO_NAME/
+cp -rf ~/spec-tracker/$REPO_NAME/docs/* ~/spec-tracker/$TARGET_REPO_NAME/specs/$REPO_NAME/
 
-cd ~/spec-repos/$TARGET_REPO_NAME
+cd ~/spec-tracker/$TARGET_REPO_NAME
 
 git add --all
 
