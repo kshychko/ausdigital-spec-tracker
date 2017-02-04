@@ -1,8 +1,8 @@
 FROM node
 
 RUN mkdir -p /root/.ssh
-ADD /home/ubuntu/.ssh/id_rsa_ast /root/.ssh/id_rsa_ast
-RUN chmod 700 /root/.ssh/id_rsa_ast
+ADD ~/.ssh/id_rsa /root/.ssh/id_rsa
+RUN chmod 700 /root/.ssh/id_rsa
 RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 
 RUN mkdir /src
