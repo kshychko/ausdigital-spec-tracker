@@ -31,6 +31,20 @@ if [ -d "$TARGET_REPO_NAME" ]; then
     git clone $TARGET_REPO_URL
 fi
 
+cd ~/$TARGET_REPO_NAME
+if [ -d "specs" ]; then
+    echo -e "specs directoryexists, no need to create"
+    else
+    mkdir "specs"
+fi
+
+cd ~/$TARGET_REPO_NAME/specs
+if [ -d "$REPO_NAME" ]; then
+    echo -e "specs/${REPO_NAME} directory exists, no need to create"
+    else
+    mkdir $REPO_NAME
+fi
+
 if [ -d "$REPO_NAME" ]; then
     cd /$REPO_NAME
     git pull origin master
@@ -42,8 +56,6 @@ if [ -d "$REPO_NAME" ]; then
     else
     git clone $REPO_URL
 fi
-
-mkdir ~/$TARGET_REPO_NAME/specs/$REPO_NAME/
 
 cp -rf ~/$REPO_NAME/docs/* ~/$TARGET_REPO_NAME/specs/$REPO_NAME/
 
