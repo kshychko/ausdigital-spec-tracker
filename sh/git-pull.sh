@@ -45,10 +45,10 @@ fi
 
 cd /opt/$TARGET_REPO_NAME/_specs
 if [ -d "$REPO_NAME" ]; then
-    echo -e "_specs/${REPO_NAME} directory exists, no need to create"
-    else
-    mkdir $REPO_NAME
+    rm -rf $REPO_NAME
 fi
+
+mkdir $REPO_NAME
 
 cd /opt/
 if [ -d "$REPO_NAME" ]; then
