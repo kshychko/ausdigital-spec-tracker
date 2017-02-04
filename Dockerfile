@@ -1,9 +1,6 @@
 FROM node
 
 RUN mkdir -p /root/.ssh
-ADD id_rsa_ast /root/.ssh/id_rsa_ast
-RUN chmod 700 /root/.ssh/id_rsa_ast
-RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 
 RUN mkdir /src
 
