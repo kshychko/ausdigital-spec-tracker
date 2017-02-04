@@ -5,6 +5,12 @@ var express = require('express');
 var router = express.Router();
 var exec = require('child_process').exec;
 var log4js = require('log4js');
+log4js.configure({
+    appenders: [
+        { type: 'console' },
+        { type: 'file', filename: 'app.log', category: 'app' }
+    ]
+});
 var logger = log4js.getLogger();
 
 
