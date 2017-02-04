@@ -48,7 +48,7 @@ fi
 
 cd ~/opt/
 if [ -d "$REPO_NAME" ]; then
-    cd /$REPO_NAME
+    cd ~/opt/$REPO_NAME
     git pull origin master
     RESULT=$?
     if [[ ${RESULT} -ne 0 ]]; then
