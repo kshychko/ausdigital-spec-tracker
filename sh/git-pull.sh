@@ -1,5 +1,6 @@
 #!/bin/bash
 
+SPEC_TRACKER = "spec-tracker"
 # Parse options
 while getopts ":n:u:t" opt; do
     case $opt in
@@ -26,25 +27,24 @@ while getopts ":n:u:t" opt; do
      esac
 done
 
-rm -rf ~/$TARGET_REPO_NAME
-
-cd ~/
-
-git clone $TARGET_REPO_URL
-
-cd ~/spec-repos/$REPO_NAME
-git pull origin master
-RESULT=$?
-if [[ ${RESULT} -ne 0 ]]; then
-    echo -e "\nCan't pull ${REPO_URL} to ${REPO_NAME} repo"
-    exit
+cd ~/spec-tracker
+if [ -d "$REPO_NAME" ]; then
+    cd /$REPO_NAME
+    git pull origin master
+    RESULT=$?
+    if [[ ${RESULT} -ne 0 ]]; then
+        echo -e "\nCan't pull ${REPO_URL} to ${REPO_NAME} repo"
+        exit
+    fi
+    else
+    git clone $REPO_URL
 fi
 
-mkdir ~/$TARGET_REPO_NAME/specs/$REPO_NAME/
+mkdir ~/spec-repos/$TARGET_REPO_NAME/specs/$REPO_NAME/
 
-cp -rf ~/spec-repos/$REPO_NAME/docs/* ~/$TARGET_REPO_NAME/specs/$REPO_NAME/
+cp -rf ~/spec-repos/$REPO_NAME/docs/* ~/spec-repos/$TARGET_REPO_NAME/specs/$REPO_NAME/
 
-cd ~/$TARGET_REPO_NAME
+cd ~/spec-repos/$TARGET_REPO_NAME
 
 git add --all
 
