@@ -1,6 +1,5 @@
 #!/bin/bash
 
-SPEC_TRACKER = "spec-tracker"
 # Parse options
 while getopts ":n:u:t" opt; do
     case $opt in
@@ -26,8 +25,12 @@ while getopts ":n:u:t" opt; do
             ;;
      esac
 done
+if [ -d "$TARGET_REPO_NAME" ]; then
+    echo -e "${TARGET_REPO_NAME} exists, no need to clone"
+    else
+    git clone $TARGET_REPO_URL
+fi
 
-cd ~/spec-tracker
 if [ -d "$REPO_NAME" ]; then
     cd /$REPO_NAME
     git pull origin master
@@ -40,11 +43,11 @@ if [ -d "$REPO_NAME" ]; then
     git clone $REPO_URL
 fi
 
-mkdir ~/spec-tracker/$TARGET_REPO_NAME/specs/$REPO_NAME/
+mkdir ~/$TARGET_REPO_NAME/specs/$REPO_NAME/
 
-cp -rf ~/spec-tracker/$REPO_NAME/docs/* ~/spec-tracker/$TARGET_REPO_NAME/specs/$REPO_NAME/
+cp -rf ~/$REPO_NAME/docs/* ~/$TARGET_REPO_NAME/specs/$REPO_NAME/
 
-cd ~/spec-tracker/$TARGET_REPO_NAME
+cd ~/$TARGET_REPO_NAME
 
 git add --all
 
