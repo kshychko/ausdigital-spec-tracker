@@ -25,30 +25,30 @@ while getopts ":n:u:t:r:" opt; do
             ;;
      esac
 done
-cd ~/opt
+cd /opt
 if [ -d "$TARGET_REPO_NAME" ]; then
     echo -e "${TARGET_REPO_NAME} exists, no need to clone"
     else
     git clone $TARGET_REPO_URL
 fi
 
-cd ~/opt/$TARGET_REPO_NAME
+cd /opt/$TARGET_REPO_NAME
 if [ -d "_specs" ]; then
     echo -e "specs directoryexists, no need to create"
     else
     mkdir "_specs"
 fi
 
-cd ~/opt/$TARGET_REPO_NAME/_specs
+cd /opt/$TARGET_REPO_NAME/_specs
 if [ -d "$REPO_NAME" ]; then
     echo -e "_specs/${REPO_NAME} directory exists, no need to create"
     else
     mkdir $REPO_NAME
 fi
 
-cd ~/opt/
+cd /opt/
 if [ -d "$REPO_NAME" ]; then
-    cd ~/opt/$REPO_NAME
+    cd /opt/$REPO_NAME
     git pull origin master
     RESULT=$?
     if [[ ${RESULT} -ne 0 ]]; then
@@ -59,9 +59,9 @@ if [ -d "$REPO_NAME" ]; then
     git clone $REPO_URL
 fi
 
-cp -rf ~/opt/$REPO_NAME/docs/* ~/opt/$TARGET_REPO_NAME/_specs/$REPO_NAME/
+cp -rf /opt/$REPO_NAME/docs/* /opt/$TARGET_REPO_NAME/_specs/$REPO_NAME/
 
-cd ~/opt/$TARGET_REPO_NAME
+cd /opt/$TARGET_REPO_NAME
 
 git add --all
 
