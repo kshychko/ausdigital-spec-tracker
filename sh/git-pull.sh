@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Parse options
-while getopts ":n:u:t" opt; do
+while getopts ":n:u:t:r:" opt; do
     case $opt in
         n)
             REPO_NAME="${OPTARG}"
