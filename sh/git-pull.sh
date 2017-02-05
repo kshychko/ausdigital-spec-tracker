@@ -5,7 +5,7 @@ ssh-add ~/.ssh/id_rsa
 ssh-keyscan -H github.com > /etc/ssh/ssh_known_hosts
 
 # Parse options
-while getopts ":n:u:t:r:" opt; do
+while getopts ":n:u:t:r:a:e:m:" opt; do
     case $opt in
         n)
             REPO_NAME="${OPTARG}"
@@ -19,6 +19,15 @@ while getopts ":n:u:t:r:" opt; do
         r)
             TARGET_REPO_URL="${OPTARG}"
             ;;
+        a)
+            COMMIT_AUTHOR_NAME="${OPTARG}"
+            ;;
+        e)
+            COMMIT_AUTHOR_EMAIL="${OPTARG}"
+            ;;
+        m)
+            COMMIT_MESSAGE="${OPTARG}"
+            ;;
         \?)
             echo -e "\nInvalid option: -${OPTARG}"
             usage
@@ -29,6 +38,11 @@ while getopts ":n:u:t:r:" opt; do
             ;;
      esac
 done
+
+git config --global user.email $COMMIT_AUTHOR_EMAIL
+
+git config --global user.name $COMMIT_AUTHOR_EMAIL
+
 cd /opt
 if [ -d "$TARGET_REPO_NAME" ]; then
     echo -e "${TARGET_REPO_NAME} exists, no need to clone"
@@ -69,7 +83,7 @@ cd /opt/$TARGET_REPO_NAME
 
 git add --all
 
-git commit -m "update specification files for ${REPO_NAME}"
+git commit -m $COMMIT_MESSAGE
 
 git pull --rebase
 

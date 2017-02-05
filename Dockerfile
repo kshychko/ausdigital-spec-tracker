@@ -1,8 +1,5 @@
 FROM node
 
-RUN git config --global user.email "k.shychko@gmail.com"
-RUN git config --global user.name "AST update"
-
 RUN mkdir -p /root/.ssh
 
 ADD id_rsa /root/.ssh/id_rsa
