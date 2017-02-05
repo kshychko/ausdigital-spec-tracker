@@ -22,7 +22,11 @@ router.post('/', function (req, res, next) {
     var authorEmail = req.body.head_commit.author.email;
     var authorName = req.body.head_commit.author.name;
     var commitMessage = req.body.head_commit.message;
-    console.log(repoURL)
+    logger.log("repoURL - ", repoURL);
+    logger.log("repoName - ", repoName);
+    logger.log("authorEmail - ", authorEmail);
+    logger.log("authorName - ", authorName);
+    logger.log("commitMessage - ", commitMessage);
     exec('sh sh/git-pull.sh'
         + ' -n ' + repoName
         + ' -u ' + repoURL
