@@ -5,7 +5,7 @@ ssh-add ~/.ssh/id_rsa
 ssh-keyscan -H github.com > /etc/ssh/ssh_known_hosts
 
 # Parse options
-while getopts ":n:u:t:r:a:e:m:" opt; do
+while getopts ":n:m:u:t:r:a:b:c:" opt; do
     case $opt in
         n)
             REPO_NAME="${OPTARG}"
@@ -20,12 +20,15 @@ while getopts ":n:u:t:r:a:e:m:" opt; do
             TARGET_REPO_URL="${OPTARG}"
             ;;
         a)
+            echo -e "\nCOMMIT_AUTHOR_NAME: -${OPTARG}"
             COMMIT_AUTHOR_NAME="${OPTARG}"
             ;;
-        e)
+        b)
+            echo -e "\nCOMMIT_AUTHOR_EMAIL: -${OPTARG}"
             COMMIT_AUTHOR_EMAIL="${OPTARG}"
             ;;
-        m)
+        c)
+            echo -e "\nCOMMIT_MESSAGE: -${OPTARG}"
             COMMIT_MESSAGE="${OPTARG}"
             ;;
         \?)
@@ -38,6 +41,7 @@ while getopts ":n:u:t:r:a:e:m:" opt; do
             ;;
      esac
 done
+
 
 git config --global user.email $COMMIT_AUTHOR_EMAIL
 
