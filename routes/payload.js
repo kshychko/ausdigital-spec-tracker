@@ -30,11 +30,11 @@ router.post('/', function (req, res, next) {
     exec('sh sh/git-pull.sh'
         + ' -n ' + repoName
         + ' -u ' + repoURL
-        + ' -t ' + 'ausdigital.github.io'
-        + ' -r ' + 'git@github.com:kshychko/ausdigital.github.io.git'
         + ' -a ' + authorName
         + ' -b ' + authorEmail
         + ' -c ' + commitMessage
+        + ' -t ' + 'ausdigital.github.io'
+        + ' -r ' + 'git@github.com:kshychko/ausdigital.github.io.git'
         , function (err, stdout, stderr) {
             logger.error(err)
             logger.log(stdout)

@@ -8,15 +8,19 @@ ssh-keyscan -H github.com > /etc/ssh/ssh_known_hosts
 while getopts ":n:m:u:t:r:a:b:c:" opt; do
     case $opt in
         n)
+            echo -e "\nREPO_NAME: -${OPTARG}"
             REPO_NAME="${OPTARG}"
             ;;
         u)
+            echo -e "\nREPO_URL: -${OPTARG}"
             REPO_URL="${OPTARG}"
             ;;
         t)
+            echo -e "\nTARGET_REPO_NAME: -${OPTARG}"
             TARGET_REPO_NAME="${OPTARG}"
             ;;
         r)
+            echo -e "\nTARGET_REPO_URL: -${OPTARG}"
             TARGET_REPO_URL="${OPTARG}"
             ;;
         a)
