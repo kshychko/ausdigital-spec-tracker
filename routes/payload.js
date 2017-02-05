@@ -33,8 +33,8 @@ router.post('/', function (req, res, next) {
         + ' -t ' + 'ausdigital.github.io'
         + ' -r ' + 'git@github.com:kshychko/ausdigital.github.io.git'
         + ' -a ' + authorName
-        + ' -e ' + authorEmail
-        + ' -m ' + commitMessage
+        + ' -b ' + authorEmail
+        + ' -c ' + commitMessage
         , function (err, stdout, stderr) {
             logger.error(err)
             logger.log(stdout)
