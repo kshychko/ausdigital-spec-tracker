@@ -91,7 +91,7 @@ cd /opt/$TARGET_REPO_NAME
 
 git add --all
 
-git commit -m $COMMIT_MESSAGE
+git commit -m "{$COMMIT_MESSAGE}"
 
 git pull --rebase
 
