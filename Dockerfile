@@ -1,6 +1,7 @@
 FROM node
 
 RUN \
+  apt-get update && \
   apt-get install -y ruby
 
 # install RVM, Ruby, and Bundler
