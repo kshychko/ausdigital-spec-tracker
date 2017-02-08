@@ -89,7 +89,11 @@ cp -rf /opt/$REPO_NAME/docs/* /opt/$TARGET_REPO_NAME/specs/$REPO_NAME/
 
 cd /opt/$TARGET_REPO_NAME
 
-git add --all
+bundle install
+
+bundle exec jekyll build
+
+git add specs/*
 
 git commit -m "$COMMIT_MESSAGE"
 
