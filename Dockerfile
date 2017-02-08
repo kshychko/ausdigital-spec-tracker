@@ -2,7 +2,7 @@ FROM node
 
 # basics
 RUN apt-get update && \
-RUN apt-get install -y ruby-full rubygems
+	apt-get install -y ruby-full rubygems
 
 RUN gem install jekyll --force && \
 RUN gem install bundler
