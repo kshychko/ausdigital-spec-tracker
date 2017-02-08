@@ -3,6 +3,5 @@
 apt-get update && \
 apt-get install -y ruby-full rubygems
 
-gem install -y jekyll
-
-gem install -y bundler
+gem install jekyll --force && \
+gem install bundler
