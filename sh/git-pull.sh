@@ -107,6 +107,8 @@ git add specs/*
 
 git commit -m "$COMMIT_MESSAGE"
 
+git reset --hard HEAD
+
 git pull --rebase
 
 git push origin master
