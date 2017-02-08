@@ -8,8 +8,8 @@ RUN \
  RUN apt-get install -y openssl
  
 # install Jekyll and Bundler
-RUN /bin/bash -l -c "gem install jekyll"
-RUN /bin/bash -l -c "gem install bundler"
+RUN gem install jekyll
+RUN gem install bundler
 
 
 RUN mkdir -p /root/.ssh
