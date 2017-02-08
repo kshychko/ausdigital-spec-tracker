@@ -21,7 +21,8 @@ router.get('/', function (req, res, next) {
                 logger.error(stderr)
                 res.send('init complete');
             });
-}
+});
+
 /* GET home page. */
 router.post('/', function (req, res, next) {
     var eventType = req.get('X-GitHub-Event');
