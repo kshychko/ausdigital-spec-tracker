@@ -14,6 +14,14 @@ log4js.configure({
 var logger = log4js.getLogger('app');
 
 
+router.get('/', function (req, res, next) {
+	exec('sh sh/init.sh', function (err, stdout, stderr) {
+                logger.error(err)
+                logger.log(stdout)
+                logger.error(stderr)
+                res.send('init complete');
+            });
+}
 /* GET home page. */
 router.post('/', function (req, res, next) {
     var eventType = req.get('X-GitHub-Event');
